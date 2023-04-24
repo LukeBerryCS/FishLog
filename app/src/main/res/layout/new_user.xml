@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/newUserText"
+        android:id="@+id/newUserTemp"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:text="TextView"

@@ -16,49 +16,49 @@ import com.example.fishlog.databinding.NewUserBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Login screen fields
     EditText usernameEntry;
     EditText passwordEntry;
-    TextView loggedInText;
-    TextView newUserText;
     Button submit;
     Button newUser;
+    ActivityMainBinding binding; //Binds login screen fields
 
-    ActivityMainBinding binding;
-
+    //Logged in screen
+    TextView loggedInText;
     LoggedInBinding loginInfoBinding;
+
+    //Signed up screen
+    TextView newUserText;
     NewUserBinding newUserBinding;
 
+    //Database holding users
     UserDAO myUserDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //sets screen to login screen)
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //text fields
         usernameEntry = binding.loginUsernameEntry;
         passwordEntry = binding.loginPasswordEntry;
-
+        //buttons
         submit = binding.loginSubmitButton;
         newUser = binding.loginNewUser;
-
-
-
-
+        //creates a variable for a new database
         myUserDAO = Room.databaseBuilder(this, UserDatabase.class, UserDatabase.DATABASE_NAME).allowMainThreadQueries().build().UserDAO();
 
-        //CHANGE SCREEN HERE
-
-        submit.setOnClickListener(new View.OnClickListener() {
+        submit.setOnClickListener(new View.OnClickListener() { //runs if "login" button is clicked
             @Override
             public void onClick(View view){
                attemptLogin();
             }
         });
 
-        newUser.setOnClickListener(new View.OnClickListener() {
+        newUser.setOnClickListener(new View.OnClickListener() { //runs if "new user" button is clicked
             @Override
             public void onClick(View view) {
                 createNewUser();
@@ -69,31 +69,34 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void attemptLogin() {
-        String myUsername = usernameEntry.getText().toString();
+        String myUsername = usernameEntry.getText().toString(); //gets values in username and password fields
         String myPassword = passwordEntry.getText().toString();
 
-        //CHECK FOR MATCHING
-        setContentView(R.layout.logged_in);
-        loginInfoBinding = LoggedInBinding.inflate(getLayoutInflater());
-        setContentView(loginInfoBinding.getRoot());
-        loggedInText = loginInfoBinding.loginInfoTemp;
-        loggedInText.setText("You logged in with the following credentials\nUsername: " + myUsername + "\n" + "Password: " + myPassword);
+        //***CHECK FOR MATCHING LOGIN AND PASSWORD***
+
+        setContentView(R.layout.logged_in); //sets screen to "logged in" screen
+        loginInfoBinding = LoggedInBinding.inflate(getLayoutInflater()); //creates screen from "logged_in.xml"
+        setContentView(loginInfoBinding.getRoot()); //makes layout visible
+
+        loggedInText = loginInfoBinding.loginInfoTemp; //connects textView object
+        String tempText = "You logged in with the following credentials\nUsername: " + myUsername + "\n" + "Password: " + myPassword;
+        loggedInText.setText(tempText);
     }
 
     private void createNewUser() {
-        String myUsername = usernameEntry.getText().toString();
+        String myUsername = usernameEntry.getText().toString(); //gets values in username and password fields
         String myPassword = passwordEntry.getText().toString();
 
-        User newUser = new User(myUsername, myPassword);
-        myUserDAO.insert(newUser);
-        setContentView(R.layout.new_user);
+        User newUser = new User(myUsername, myPassword); //Creates a new user object with fields in username and password screen
+        myUserDAO.insert(newUser); //adds new user to the database
 
-        newUserBinding = NewUserBinding.inflate(getLayoutInflater());
-        setContentView(newUserBinding.getRoot());
-        newUserText = newUserBinding.newUserText;
-        newUserText.setText("You created a new user with the following credentials\nUsername: " + myUsername + "\n" + "Password: " + myPassword);
+        setContentView(R.layout.new_user); //sets screen to "new user created" screen
+        newUserBinding = NewUserBinding.inflate(getLayoutInflater()); //creates screen from "new_user.xml"
+        setContentView(newUserBinding.getRoot()); //makes layout visible
 
-
+        newUserText = newUserBinding.newUserTemp; //connects textView object
+        String tempText2 = "You created a new user with the following credentials\nUsername: " + myUsername + "\n" + "Password: " + myPassword;
+        newUserText.setText(tempText2);
 
     }
 }
