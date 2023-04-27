@@ -1,5 +1,4 @@
 package com.example.fishlog;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import android.os.Bundle;
@@ -7,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.example.fishlog.DB.UserDatabase;
 import com.example.fishlog.databinding.ActivityMainBinding;
 import com.example.fishlog.databinding.LoggedInBinding;
@@ -30,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     //Signed up screen
     TextView newUserText;
     NewUserBinding newUserBinding;
-
+    TextView errorPrompt;
     //Database holding users
     UserDAO myUserDAO;
 
@@ -45,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //text fields
         usernameEntry = binding.loginUsernameEntry;
         passwordEntry = binding.loginPasswordEntry;
+        errorPrompt = binding.loginErrorPrompt;
         //buttons
         submit = binding.loginSubmitButton;
         newUser = binding.loginNewUser;
@@ -67,20 +66,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     private void attemptLogin() {
         String myUsername = usernameEntry.getText().toString(); //gets values in username and password fields
         String myPassword = passwordEntry.getText().toString();
 
-        //***CHECK FOR MATCHING LOGIN AND PASSWORD***
+        User myUser = myUserDAO.findUser(myUsername); //returns the user object with the entered username
+        if(myUser.getPassword().equals(myPassword)) { //Runs if password matches username
+            setContentView(R.layout.logged_in); //sets screen to "logged in" screen
+            loginInfoBinding = LoggedInBinding.inflate(getLayoutInflater()); //creates screen from "logged_in.xml"
+            setContentView(loginInfoBinding.getRoot()); //makes layout visible
 
-        setContentView(R.layout.logged_in); //sets screen to "logged in" screen
-        loginInfoBinding = LoggedInBinding.inflate(getLayoutInflater()); //creates screen from "logged_in.xml"
-        setContentView(loginInfoBinding.getRoot()); //makes layout visible
-
-        loggedInText = loginInfoBinding.loginInfoTemp; //connects textView object
-        String tempText = "You logged in with the following credentials\nUsername: " + myUsername + "\n" + "Password: " + myPassword;
-        loggedInText.setText(tempText);
+            loggedInText = loginInfoBinding.loginInfoTemp; //connects textView object
+            String tempText = "You logged in with the following credentials\nUsername: " + myUsername + "\n" + "Password: " + myPassword;
+            loggedInText.setText(tempText);
+        } else { //Incorrect password
+            String incorrectPasswordPrompt = "Incorrect password";
+            errorPrompt.setText(incorrectPasswordPrompt);
+        }
     }
 
     private void createNewUser() {

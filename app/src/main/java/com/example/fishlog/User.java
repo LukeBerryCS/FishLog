@@ -1,10 +1,6 @@
 package com.example.fishlog;
-
-import android.service.autofill.UserData;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 import com.example.fishlog.DB.UserDatabase;
 
 @Entity(tableName = UserDatabase.USERS_TABLE) //"User" is an entity that can be stored in the SQLite table
@@ -12,7 +8,6 @@ public class User {
 
     @PrimaryKey(autoGenerate = true) //Room autogenerates a key for table entries
     private int userId;
-
     private String username;
     private String password;
 
