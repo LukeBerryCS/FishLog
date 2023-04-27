@@ -9,6 +9,4 @@ public class CurrentUser {
     public String getPassword() {
         return password;
     }
-
-
 }
