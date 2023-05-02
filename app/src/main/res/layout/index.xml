@@ -7,13 +7,71 @@
 
     <TextView
         android:id="@+id/loginInfoTemp"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="308dp"
+        android:layout_height="36dp"
         android:text="TextView"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/indexLogoutButton"
+        android:layout_width="118dp"
+        android:layout_height="60dp"
+        android:text="Log out"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <Button
+        android:id="@+id/indexMyCatches"
+        android:layout_width="218dp"
+        android:layout_height="64dp"
+        android:text="My Catches"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginInfoTemp"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <Button
+        android:id="@+id/indexMyTrips"
+        android:layout_width="221dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="4dp"
+        android:text="My Trips"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/indexMyCatches" />
+
+    <Button
+        android:id="@+id/indexPersonalBest"
+        android:layout_width="218dp"
+        android:layout_height="55dp"
+        android:text="Personal Best"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/indexMyTrips"
+        app:layout_constraintVertical_bias="0.03" />
+
+    <TextView
+        android:id="@+id/indexTitle"
+        android:layout_width="260dp"
+        android:layout_height="79dp"
+        android:text="FISH LOG"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toTopOf="@+id/indexMyCatches"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginInfoTemp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
