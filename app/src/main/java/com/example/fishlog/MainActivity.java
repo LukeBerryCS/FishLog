@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        System.out.println("MainActivity created");
         setContentView(R.layout.activity_main); // sets screen to login screen
 
         //Connects fields with app fields
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         submit = findViewById(R.id.loginSubmitButton);
         newUser = findViewById(R.id.loginNewUser);
 
-        // creates a variable for a new database
+        //Creates new database and assigns it to variable
         myUserDAO = Room.databaseBuilder(this, UserDatabase.class, UserDatabase.DATABASE_NAME).allowMainThreadQueries().build().UserDAO();
 
         submit.setOnClickListener(view -> attemptLogin()); //Methods called on buttons clicked
@@ -48,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             if(myUser.getPassword().equals(myPassword)) { // Runs if password matches username
                 confirmLogin(myUser.getUsername());
-                // LOGGING
                 System.out.println("User " + myUsername + "logged in");
             } else { // Incorrect password
                 String incorrectPasswordPrompt = "Incorrect password";
@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 User newUser = new User(myUsername, myPassword); // Creates a new user object with fields in username and password screen
                 myUserDAO.insert(newUser); // adds new user to the database
                 confirmLogin(myUsername);
-                // LOGGING
                 System.out.println("New user created: " + myUsername);
             } else {
                 String errorText = "4 char min. password";
@@ -89,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, Index.class);
         currentUser = username;
         startActivity(intent);
+        System.out.println("Login confirmed");
         finish();
     }
 }

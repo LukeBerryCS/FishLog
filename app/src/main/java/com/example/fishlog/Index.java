@@ -2,7 +2,7 @@ package com.example.fishlog;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Index extends AppCompatActivity {
     protected String username;
     TextView indexLogout;
+    Button indexMyCatches;
+    Button indexMyTrips;
+    Button indexPersonalBest;
 
     public Index(String username) {
         this.username = username;
@@ -24,20 +27,42 @@ public class Index extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.index);
-
+        System.out.println("Index created");
         TextView loginInfoTemp = (TextView) findViewById(R.id.loginInfoTemp);
         String tempText = "User:  " + username;
         loginInfoTemp.setText(tempText);
 
         indexLogout = findViewById(R.id.indexLogoutButton);
-        indexLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Index.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        indexMyCatches = findViewById(R.id.indexMyCatches);
+        indexMyTrips = findViewById(R.id.indexMyTrips);
+        indexPersonalBest = findViewById(R.id.indexPersonalBest);
+
+        indexLogout.setOnClickListener(view -> logout());
+        indexMyCatches.setOnClickListener(view -> indexToCatches());
+        indexMyTrips.setOnClickListener(view -> indexToTrips());
+        indexPersonalBest.setOnClickListener(view -> indexToPersonalBest());
+    }
+    private void logout() {
+        Intent intent = new Intent(Index.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
+    private void indexToCatches() {
+        Intent intent = new Intent(Index.this, MyCatches.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void indexToTrips() {
+        Intent intent = new Intent(Index.this, MyTrips.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void indexToPersonalBest() {
+        Intent intent = new Intent(Index.this, PersonalBest.class);
+        startActivity(intent);
+        finish();
+    }
 }
