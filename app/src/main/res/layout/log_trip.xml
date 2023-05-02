@@ -6,27 +6,26 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/myTripsBack"
-        android:layout_width="98dp"
-        android:layout_height="55dp"
-        android:text="Back"
+        android:id="@+id/logTripCancel"
+        android:layout_width="142dp"
+        android:layout_height="60dp"
+        android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.961" />
+        app:layout_constraintVertical_bias="0.062" />
 
     <Button
-        android:id="@+id/myTripsLogTrip"
-        android:layout_width="262dp"
-        android:layout_height="72dp"
-        android:text="Log a Trip"
-        android:textSize="24sp"
+        android:id="@+id/logTripSave"
+        android:layout_width="118dp"
+        android:layout_height="64dp"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintVertical_bias="0.976" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import com.example.fishlog.DB.UserDAO;
 
 public class MainActivity extends AppCompatActivity {
     protected static String currentUser = null; //Holds the value of the current logged in user
+    protected static int currentUserId = 0;
     // Login screen fields
     EditText usernameEntry;
     EditText passwordEntry;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if(myUser.getPassword().equals(myPassword)) { // Runs if password matches username
+                currentUserId = myUser.getUserId();
                 confirmLogin(myUser.getUsername());
                 System.out.println("User " + myUsername + "logged in");
             } else { // Incorrect password
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             if(myPassword.length() >= 4) {
                 User newUser = new User(myUsername, myPassword); // Creates a new user object with fields in username and password screen
                 myUserDAO.insert(newUser); // adds new user to the database
+                currentUserId = newUser.getUserId();
                 confirmLogin(myUsername);
                 System.out.println("New user created: " + myUsername);
             } else {
