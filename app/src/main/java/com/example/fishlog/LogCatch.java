@@ -3,7 +3,7 @@ package com.example.fishlog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
@@ -15,10 +15,10 @@ public class LogCatch extends AppCompatActivity {
     Button logCatchCancel;
     Button logCatchSave;
 
-    TextView logCatchSpecies;
-    TextView logCatchLocation;
-    TextView logCatchWeight;
-    TextView logCatchSize;
+    EditText logCatchSpecies;
+    EditText logCatchLocation;
+    EditText logCatchWeight;
+    EditText logCatchSize;
 
     FishDAO myFishDAO;
 

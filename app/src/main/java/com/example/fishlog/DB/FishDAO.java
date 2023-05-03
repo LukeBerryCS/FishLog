@@ -3,9 +3,13 @@ package com.example.fishlog.DB;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.fishlog.Fish;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface FishDAO {
@@ -17,5 +21,8 @@ public interface FishDAO {
 
     @Delete
     void delete(Fish fish);
+
+    @Query("SELECT * FROM fish_table WHERE userId = :currentUserId")
+    public List<Fish> getMyFish(int currentUserId);
 
 }

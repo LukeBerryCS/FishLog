@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <TextView
+    <EditText
         android:id="@+id/logCatchSpecies"
         android:layout_width="241dp"
         android:layout_height="62dp"
@@ -40,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/logCatchLocation"
         android:layout_width="265dp"
         android:layout_height="74dp"
@@ -51,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logCatchSpecies" />
 
-    <TextView
+    <EditText
         android:id="@+id/logCatchWeight"
         android:layout_width="240dp"
         android:layout_height="64dp"
@@ -62,7 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logCatchLocation" />
 
-    <TextView
+    <EditText
         android:id="@+id/logCatchSize"
         android:layout_width="222dp"
         android:layout_height="74dp"
