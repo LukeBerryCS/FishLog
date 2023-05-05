@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ff858cf6a5d130d34d6a2e916d32eb51",
+    "identityHash": "4ba26896d622da26c5618e7abe2e7b1a",
     "entities": [
       {
         "tableName": "fish_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fishId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL, `species` TEXT, `weight` REAL NOT NULL, `size` INTEGER NOT NULL, `location` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fishId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userId` INTEGER NOT NULL, `species` TEXT, `weight` REAL NOT NULL, `size` INTEGER NOT NULL, `location` TEXT, `tripId` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "fishId",
@@ -43,6 +43,12 @@
             "columnName": "location",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "tripId",
+            "columnName": "tripId",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -58,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ff858cf6a5d130d34d6a2e916d32eb51')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4ba26896d622da26c5618e7abe2e7b1a')"
     ]
   }
 }

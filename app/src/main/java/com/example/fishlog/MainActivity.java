@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
             if(myPassword.length() >= 4) {
                 User newUser = new User(myUsername, myPassword); // Creates a new user object with fields in username and password screen
                 myUserDAO.insert(newUser); // adds new user to the database
-                currentUserId = newUser.getUserId();
+                User tempUser = myUserDAO.findUser(myUsername);
+                currentUserId = tempUser.getUserId();
                 confirmLogin(myUsername);
                 System.out.println("New user created: " + myUsername);
             } else {

@@ -33,6 +33,7 @@ public class MyCatches extends AppCompatActivity {
         myCatchesList = findViewById(R.id.myCatchesCatchList);
 
         showCatches();
+        System.out.println(MainActivity.currentUserId);
 
         myCatchesBack.setOnClickListener(view -> back());
         myCatchesLogCatch.setOnClickListener(view -> logCatch());
