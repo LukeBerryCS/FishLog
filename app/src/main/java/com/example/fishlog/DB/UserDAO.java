@@ -20,4 +20,6 @@ public interface UserDAO {
 
     @Query("SELECT * FROM users_table WHERE username = :myUsername")
     public User findUser(String myUsername);
+
+
 }

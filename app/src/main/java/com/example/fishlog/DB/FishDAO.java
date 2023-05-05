@@ -22,7 +22,10 @@ public interface FishDAO {
     @Delete
     void delete(Fish fish);
 
-    @Query("SELECT * FROM fish_table WHERE userId = :currentUserId")
+    @Query("SELECT * FROM fish_table WHERE userId = :currentUserId AND tripId = 0")
     public List<Fish> getMyFish(int currentUserId);
+
+    @Query("SELECT * FROM fish_table WHERE tripId = :tripId")
+    public List<Fish> populateCatches(int tripId);
 
 }

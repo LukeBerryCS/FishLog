@@ -16,6 +16,7 @@ public class Fish {
     private float weight;
     private int size;
     private String location;
+    private int tripId;
 
     public Fish(String species, float weight, int size, String location) {
         this.userId = MainActivity.currentUserId;
@@ -23,6 +24,17 @@ public class Fish {
         this.weight = weight;
         this.size = size;
         this.location = location;
+        this.tripId = 0;
+        System.out.println("Fish created");
+    }
+
+    public Fish(int tripId, String species, float weight, int size) {
+        this.userId = MainActivity.currentUserId;
+        this.species = species;
+        this.weight = weight;
+        this.size = size;
+        this.location = null;
+        this.tripId = tripId;
         System.out.println("Fish created");
     }
 
@@ -76,5 +88,13 @@ public class Fish {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getTripId() {
+        return tripId;
+    }
+
+    public void setTripId(int tripId) {
+        this.tripId = tripId;
     }
 }

@@ -52,7 +52,6 @@ public class LogCatch extends AppCompatActivity {
         String location = logCatchLocation.getText().toString();
         float weight = Float.parseFloat(logCatchWeight.getText().toString());
         int size = Integer.parseInt(logCatchSize.getText().toString());
-
         Fish newFish = new Fish(species, weight, size, location);
         myFishDAO.insert(newFish);
         System.out.println("New fish created: " + species);
