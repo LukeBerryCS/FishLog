@@ -31,7 +31,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginErrorPrompt"
-        app:layout_marginBaseline="2sp" />
+        app:layout_marginBaseline="2sp"
+        android:hint="Username"/>
 
     <EditText
         android:id="@+id/loginPasswordEntry"
@@ -42,7 +43,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEntry" />
+        app:layout_constraintTop_toBottomOf="@+id/usernameEntry"
+        android:hint="Password"/>
 
     <Button
         android:id="@+id/loginSubmitButton"
