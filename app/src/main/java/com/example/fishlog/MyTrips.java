@@ -2,6 +2,7 @@ package com.example.fishlog;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class MyTrips extends AppCompatActivity {
 
         myTripsBack.setOnClickListener(view -> back());
         myTripsLogTrip.setOnClickListener(view -> logTrip());
+        myTripsViewTrip.setMovementMethod(new ScrollingMovementMethod());
 
         showTrips();
     }

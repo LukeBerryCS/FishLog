@@ -2,6 +2,7 @@ package com.example.fishlog;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -37,6 +38,7 @@ public class MyCatches extends AppCompatActivity {
 
         myCatchesBack.setOnClickListener(view -> back());
         myCatchesLogCatch.setOnClickListener(view -> logCatch());
+        myCatchesList.setMovementMethod(new ScrollingMovementMethod());
 
     }
 

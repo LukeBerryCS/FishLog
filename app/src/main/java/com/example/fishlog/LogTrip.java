@@ -2,6 +2,7 @@ package com.example.fishlog;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -52,6 +53,7 @@ public class LogTrip extends AppCompatActivity {
         logTripLocation.setText(tempLocation);
         logTripStartDate.setText(tempStartDate);
         logTripEndDate.setText(tempEndDate);
+        logTripViewCatches.setMovementMethod(new ScrollingMovementMethod());
 
         List<Fish> currentFish = myFishDAO.populateCatches(Trip.classTripId+1);
 
