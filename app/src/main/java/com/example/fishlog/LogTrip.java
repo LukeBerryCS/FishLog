@@ -19,9 +19,9 @@ import java.sql.Date;
 import java.util.List;
 
 public class LogTrip extends AppCompatActivity {
-    private static String tempLocation = "loc";
-    private static String tempStartDate = "sta";
-    private static String tempEndDate = "end";
+    private static String tempLocation = "";
+    private static String tempStartDate = "";
+    private static String tempEndDate = "";
 
     Button logTripCancel;
     Button logTripSave;
@@ -71,9 +71,9 @@ public class LogTrip extends AppCompatActivity {
         logTripAddCatch.setOnClickListener(view -> addCatchToTrip());
     }
     private void cancel() {
-        tempLocation = "loc";
-        tempStartDate = "sta";
-        tempEndDate = "end";
+        tempLocation = "";
+        tempStartDate = "";
+        tempEndDate = "";
         Trip.classTripId += 1;
         Intent intent = new Intent(LogTrip.this, MyTrips.class);
         startActivity(intent);
@@ -89,9 +89,9 @@ public class LogTrip extends AppCompatActivity {
         myTripDAO.insert(newTrip);
         System.out.println("New trip created: " + location + " (" + startDate + " - " + endDate + ")");
 
-        tempLocation = "loc";
-        tempStartDate = "sta";
-        tempEndDate = "end";
+        tempLocation = "";
+        tempStartDate = "";
+        tempEndDate = "";
 
         Intent intent = new Intent(LogTrip.this, MyTrips.class);
         startActivity(intent);

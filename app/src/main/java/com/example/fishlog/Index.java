@@ -9,19 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Index extends AppCompatActivity {
-    protected String username;
     TextView indexLogout;
     Button indexMyCatches;
     Button indexMyTrips;
     Button indexPersonalBest;
-
-    public Index(String username) {
-        this.username = username;
-    }
-
-    public Index() {
-        this.username = MainActivity.currentUser;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +20,7 @@ public class Index extends AppCompatActivity {
         setContentView(R.layout.index);
         System.out.println("Index created");
         TextView loginInfoTemp = (TextView) findViewById(R.id.loginInfoTemp);
-        String tempText = "User:  " + username;
+        String tempText = "User:  " + MainActivity.currentUser.getUsername();
         loginInfoTemp.setText(tempText);
 
         indexLogout = findViewById(R.id.indexLogoutButton);

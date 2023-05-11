@@ -10,8 +10,8 @@ import com.example.fishlog.DB.UserDatabase;
 import com.example.fishlog.DB.UserDAO;
 
 public class MainActivity extends AppCompatActivity {
-    protected static String currentUser = null; //Holds the value of the current logged in user
     protected static int currentUserId = 0;
+    protected static User currentUser = null;
     // Login screen fields
     EditText usernameEntry;
     EditText passwordEntry;
@@ -40,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
         submit.setOnClickListener(view -> attemptLogin()); //Methods called on buttons clicked
         newUser.setOnClickListener(view -> createNewUser());
+
+        User myUser = myUserDAO.findUser("admin");
+        if(myUser == null) {
+            User adminUser = new User("admin", "admin", true);
+            myUserDAO.insert(adminUser);
+        }
     }
 
     private void attemptLogin() {
@@ -49,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             if(myUser.getPassword().equals(myPassword)) { // Runs if password matches username
-                currentUserId = myUser.getUserId();
-                confirmLogin(myUser.getUsername());
+                currentUser = myUser;
+                confirmLogin();
                 System.out.println("User " + myUsername + "logged in");
             } else { // Incorrect password
                 String incorrectPasswordPrompt = "Incorrect password";
@@ -67,16 +73,16 @@ public class MainActivity extends AppCompatActivity {
     private void createNewUser() {
         String myUsername = usernameEntry.getText().toString(); // gets values in username and password fields
         String myPassword = passwordEntry.getText().toString();
-
         User myUser = myUserDAO.findUser(myUsername);
         if(myUser == null) { // Runs if user with that username has NOT been created
             if(myPassword.length() >= 4) {
-                User newUser = new User(myUsername, myPassword); // Creates a new user object with fields in username and password screen
+                User newUser = new User(myUsername, myPassword, false); // Creates a new user object with fields in username and password screen
                 myUserDAO.insert(newUser); // adds new user to the database
-                User tempUser = myUserDAO.findUser(myUsername);
+                currentUser = newUser;
+                User tempUser = myUserDAO.findUser(currentUser.getUsername());
                 currentUserId = tempUser.getUserId();
-                confirmLogin(myUsername);
-                System.out.println("New user created: " + myUsername);
+                confirmLogin();
+                System.out.println("New user created: " + currentUser.getUsername());
             } else {
                 String errorText = "4 char min. password";
                 errorPrompt.setText(errorText);
@@ -88,11 +94,15 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("User attempted to create a user " + myUsername + " that had already been created");
         }
     }
-    private void confirmLogin(String username) {
+    private void confirmLogin() {
         Intent intent = new Intent(MainActivity.this, Index.class);
-        currentUser = username;
+        if(!currentUser.isAdmin()) {
+            System.out.println("Current user is not admin");
+        } else {
+            System.out.println("Current user is admin");
+        }
         startActivity(intent);
-        System.out.println("Login confirmed");
+        System.out.println("Login confirmed: " + currentUser.getUsername());
         finish();
     }
 }
