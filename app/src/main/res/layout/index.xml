@@ -48,34 +48,24 @@
         android:id="@+id/indexMyTrips"
         android:layout_width="364dp"
         android:layout_height="73dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:text="My Trips"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/indexMyCatches" />
 
-    <TextView
-        android:id="@+id/indexTitle"
-        android:layout_width="260dp"
-        android:layout_height="79dp"
-        android:text="FISH LOG"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/indexMyCatches"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginInfoTemp" />
-
     <Button
         android:id="@+id/indexAdminTools"
-        android:layout_width="206dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="361dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="24dp"
         android:text="Admin Tools"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/indexPersonalBest"
+        app:layout_constraintTop_toBottomOf="@+id/indexMyTrips"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

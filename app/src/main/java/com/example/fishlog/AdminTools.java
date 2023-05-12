@@ -94,8 +94,6 @@ public class AdminTools extends AppCompatActivity {
         myUser.setAdmin(true);
         myUserDAO.update(myUser);
     }
-
-    //TODO implement changePassword()
     private void changePassword(String password) {
         adminToolsChangePasswordConfirm.setVisibility(View.VISIBLE);
         adminToolsChangePassword.setVisibility(View.INVISIBLE);
