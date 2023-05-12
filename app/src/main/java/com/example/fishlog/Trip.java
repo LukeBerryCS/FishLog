@@ -13,16 +13,12 @@ public class Trip {
     @PrimaryKey(autoGenerate = false)
     private int tripId;
     private String location;
-    private String tripStart;
-    private String tripEnd;
     private int userId;
 
-    public Trip(String location, String tripStart, String tripEnd) {
+    public Trip(String location) {
         classTripId += 1;
         this.tripId = classTripId;
         this.location = location;
-        this.tripStart = tripStart;
-        this.tripEnd = tripEnd;
         this.userId = MainActivity.currentUserId;
     }
 
@@ -48,22 +44,6 @@ public class Trip {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public String getTripStart() {
-        return tripStart;
-    }
-
-    public void setTripStart(String tripStart) {
-        this.tripStart = tripStart;
-    }
-
-    public String getTripEnd() {
-        return tripEnd;
-    }
-
-    public void setTripEnd(String tripEnd) {
-        this.tripEnd = tripEnd;
     }
 
     public int getUserId() {

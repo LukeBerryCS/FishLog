@@ -20,7 +20,13 @@ public class Index extends AppCompatActivity {
         System.out.println("Index created");
         TextView loginInfoTemp = (TextView) findViewById(R.id.loginInfoTemp);
         String tempText = "User:  " + MainActivity.currentUser.getUsername();
-        loginInfoTemp.setText(tempText);
+        String statText;
+        if(MainActivity.currentUser.getTotalCatches() >= 1) {
+            statText = "\nTotal Catches: " + MainActivity.currentUser.getTotalCatches() + "\nPB (weight): " + MainActivity.currentUser.getBestWeightSpecies() + " (" + MainActivity.currentUser.getBestWeight() + " lbs.)" + "\nPB (length): " + MainActivity.currentUser.getBestLengthSpecies() + " (" + MainActivity.currentUser.getBestLength() + " in.)";
+        } else {
+            statText = "";
+        }
+        loginInfoTemp.setText(tempText + statText);
 
         indexLogout = findViewById(R.id.indexLogoutButton);
         indexMyCatches = findViewById(R.id.indexMyCatches);

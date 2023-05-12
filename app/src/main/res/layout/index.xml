@@ -9,7 +9,7 @@
         android:id="@+id/loginInfoTemp"
         android:layout_width="374dp"
         android:layout_height="161dp"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.378"

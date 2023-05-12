@@ -18,6 +18,7 @@ public class Fish {
     private String location;
     private int tripId;
 
+    //For LogCatch
     public Fish(String species, float weight, int size, String location) {
         this.userId = MainActivity.currentUserId;
         this.species = species;
@@ -28,6 +29,7 @@ public class Fish {
         System.out.println("Fish created");
     }
 
+    //For LogTripCatch
     public Fish(int tripId, String species, float weight, int size) {
         this.userId = MainActivity.currentUserId;
         this.species = species;
