@@ -33,25 +33,25 @@
         android:id="@+id/logTripAddCatch"
         android:layout_width="329dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
         android:text="Add Catch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logTripEndDate" />
+        tools:layout_editor_absoluteY="128dp" />
 
     <TextView
         android:id="@+id/logTripViewCatches"
-        android:layout_width="371dp"
-        android:layout_height="302dp"
+        android:layout_width="370dp"
+        android:layout_height="280dp"
         android:layout_marginTop="8dp"
         android:text="Catches:"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logTripAddCatch"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <EditText
         android:id="@+id/logTripLocation"
@@ -64,29 +64,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/logTripStartDate"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="Start date (MM/DD/YYYY)"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logTripLocation" />
-
-    <EditText
-        android:id="@+id/logTripEndDate"
-        android:layout_width="329dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="End date (MM/DD/YYYY)"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logTripStartDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

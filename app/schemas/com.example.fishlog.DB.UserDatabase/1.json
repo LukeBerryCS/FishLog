@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "829dd337db507d2beceeac2727702866",
+    "identityHash": "ab4d5fd95e826e4db2e3c678e8bb6676",
     "entities": [
       {
         "tableName": "users_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT, `admin` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT, `admin` INTEGER NOT NULL, `bestWeightSpecies` TEXT, `bestWeight` REAL NOT NULL, `bestLengthSpecies` TEXT, `bestLength` INTEGER NOT NULL, `totalCatches` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "userId",
@@ -31,6 +31,36 @@
             "columnName": "admin",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "bestWeightSpecies",
+            "columnName": "bestWeightSpecies",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bestWeight",
+            "columnName": "bestWeight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bestLengthSpecies",
+            "columnName": "bestLengthSpecies",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "bestLength",
+            "columnName": "bestLength",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalCatches",
+            "columnName": "totalCatches",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -46,7 +76,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '829dd337db507d2beceeac2727702866')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ab4d5fd95e826e4db2e3c678e8bb6676')"
     ]
   }
 }

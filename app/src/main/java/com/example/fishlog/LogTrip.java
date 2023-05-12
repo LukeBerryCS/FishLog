@@ -27,8 +27,6 @@ public class LogTrip extends AppCompatActivity {
     Button logTripSave;
     Button logTripAddCatch;
     EditText logTripLocation;
-    EditText logTripStartDate;
-    EditText logTripEndDate;
     TextView logTripViewCatches;
 
     TripDAO myTripDAO;
@@ -46,13 +44,9 @@ public class LogTrip extends AppCompatActivity {
         logTripSave = findViewById(R.id.logTripSave);
         logTripAddCatch = findViewById(R.id.logTripAddCatch);
         logTripLocation = findViewById(R.id.logTripLocation);
-        logTripStartDate = findViewById(R.id.logTripStartDate);
-        logTripEndDate = findViewById(R.id.logTripEndDate);
         logTripViewCatches = findViewById(R.id.logTripViewCatches);
 
         logTripLocation.setText(tempLocation);
-        logTripStartDate.setText(tempStartDate);
-        logTripEndDate.setText(tempEndDate);
         logTripViewCatches.setMovementMethod(new ScrollingMovementMethod());
 
         List<Fish> currentFish = myFishDAO.populateCatches(Trip.classTripId+1);
@@ -82,12 +76,10 @@ public class LogTrip extends AppCompatActivity {
 
     private void save() {
         String location = logTripLocation.getText().toString();
-        String startDate = logTripStartDate.getText().toString();
-        String endDate = logTripEndDate.getText().toString();
 
-        Trip newTrip = new Trip(location, startDate, endDate);
+        Trip newTrip = new Trip(location);
         myTripDAO.insert(newTrip);
-        System.out.println("New trip created: " + location + " (" + startDate + " - " + endDate + ")");
+        System.out.println("New trip created: " + location);
 
         tempLocation = "";
         tempStartDate = "";
@@ -100,8 +92,6 @@ public class LogTrip extends AppCompatActivity {
 
     private void addCatchToTrip() {
         tempLocation = logTripLocation.getText().toString();
-        tempStartDate = logTripStartDate.getText().toString();
-        tempEndDate = logTripEndDate.getText().toString();
         Intent intent = new Intent(LogTrip.this, LogTripCatch.class);
         startActivity(intent);
         finish();
