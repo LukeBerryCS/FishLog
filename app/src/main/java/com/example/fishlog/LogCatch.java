@@ -10,6 +10,8 @@ import androidx.room.Room;
 
 import com.example.fishlog.DB.FishDAO;
 import com.example.fishlog.DB.FishDatabase;
+import com.example.fishlog.DB.UserDAO;
+import com.example.fishlog.DB.UserDatabase;
 
 public class LogCatch extends AppCompatActivity {
     Button logCatchCancel;
@@ -21,6 +23,7 @@ public class LogCatch extends AppCompatActivity {
     EditText logCatchSize;
 
     FishDAO myFishDAO;
+    UserDAO myUserDAO;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,7 @@ public class LogCatch extends AppCompatActivity {
         setContentView(R.layout.log_catch);
 
         myFishDAO = Room.databaseBuilder(this, FishDatabase.class, FishDatabase.DATABASE_NAME).allowMainThreadQueries().build().FishDAO();
+        myUserDAO = Room.databaseBuilder(this, UserDatabase.class, UserDatabase.DATABASE_NAME).allowMainThreadQueries().build().UserDAO();
 
         logCatchSpecies = findViewById(R.id.logCatchSpecies);
         logCatchLocation = findViewById(R.id.logCatchLocation);
@@ -51,11 +55,26 @@ public class LogCatch extends AppCompatActivity {
         String species = logCatchSpecies.getText().toString();
         String location = logCatchLocation.getText().toString();
         float weight = Float.parseFloat(logCatchWeight.getText().toString());
-        int size = Integer.parseInt(logCatchSize.getText().toString());
-        Fish newFish = new Fish(species, weight, size, location);
+        int length = Integer.parseInt(logCatchSize.getText().toString());
+        Fish newFish = new Fish(species, weight, length, location);
+
+        //Updating user stats
+        User myUser = myUserDAO.findUser(MainActivity.currentUser.getUsername());
+        int currentCatches = myUser.getTotalCatches() + 1;
+        myUser.setTotalCatches(currentCatches);
+        if(weight >= myUser.getBestWeight()) {
+            myUser.setBestWeight(weight);
+            myUser.setBestWeightSpecies(species);
+        }
+        if(length >= myUser.getBestLength()) {
+            myUser.setBestLength(length);
+            myUser.setBestLengthSpecies(species);
+        }
+        MainActivity.currentUser = myUser;
+        myUserDAO.update(myUser);
+
         myFishDAO.insert(newFish);
         System.out.println("New fish created: " + species);
-
         Intent intent = new Intent(LogCatch.this, MyCatches.class);
         startActivity(intent);
         finish();

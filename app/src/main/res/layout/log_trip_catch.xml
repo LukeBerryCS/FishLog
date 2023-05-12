@@ -7,9 +7,10 @@
 
     <Button
         android:id="@+id/logTripCatchCancel"
-        android:layout_width="124dp"
-        android:layout_height="59dp"
+        android:layout_width="114dp"
+        android:layout_height="60dp"
         android:text="Cancel"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.055"
@@ -19,19 +20,20 @@
 
     <Button
         android:id="@+id/logTripCatchSave"
-        android:layout_width="106dp"
-        android:layout_height="61dp"
+        android:layout_width="350dp"
+        android:layout_height="75dp"
         android:text="Save"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintTop_toBottomOf="@+id/logTripCatchSize"
+        app:layout_constraintVertical_bias="0.115" />
 
     <EditText
         android:id="@+id/logTripCatchSpecies"
-        android:layout_width="241dp"
+        android:layout_width="372dp"
         android:layout_height="62dp"
         android:layout_marginTop="136dp"
         android:hint="Species"
@@ -42,10 +44,10 @@
 
     <EditText
         android:id="@+id/logTripCatchWeight"
-        android:layout_width="240dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="44dp"
-        android:hint="Weight"
+        android:layout_width="357dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:hint="Weight (pounds)"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -54,14 +56,14 @@
 
     <EditText
         android:id="@+id/logTripCatchSize"
-        android:layout_width="222dp"
-        android:layout_height="74dp"
-        android:hint="Size"
+        android:layout_width="348dp"
+        android:layout_height="60dp"
+        android:hint="Length (inches)"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logTripCatchWeight"
-        app:layout_constraintVertical_bias="0.105" />
+        app:layout_constraintVertical_bias="0.049" />
 </androidx.constraintlayout.widget.ConstraintLayout>

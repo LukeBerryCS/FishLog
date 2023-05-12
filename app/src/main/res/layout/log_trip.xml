@@ -31,27 +31,27 @@
 
     <Button
         android:id="@+id/logTripAddCatch"
-        android:layout_width="350dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="104dp"
+        android:layout_width="329dp"
+        android:layout_height="64dp"
         android:text="Add Catch"
-        app:layout_constraintBottom_toTopOf="@+id/logTripViewCatches"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logTripLocation"
-        app:layout_constraintVertical_bias="0.376" />
+        tools:layout_editor_absoluteY="128dp" />
 
     <TextView
         android:id="@+id/logTripViewCatches"
-        android:layout_width="372dp"
-        android:layout_height="217dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="370dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="8dp"
         android:text="Catches:"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logTripAddCatch"
+        app:layout_constraintVertical_bias="0.073" />
 
     <EditText
         android:id="@+id/logTripLocation"
@@ -64,34 +64,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/logTripStartDate"
-        android:layout_width="147dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="Start date (MM/DD/YYYY)"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/logTripAddCatch"
-        app:layout_constraintEnd_toStartOf="@+id/logTripEndDate"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logTripLocation"
-        app:layout_constraintVertical_bias="0.125" />
-
-    <EditText
-        android:id="@+id/logTripEndDate"
-        android:layout_width="153dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:ems="10"
-        android:hint="End date (MM/DD/YYYY)"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/logTripAddCatch"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logTripLocation"
-        app:layout_constraintVertical_bias="0.2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,13 @@ public class User {
     private String password;
     private boolean admin;
 
+    //Personal best values
+    private String bestWeightSpecies = null;
+    private float bestWeight = 0;
+    private String bestLengthSpecies = null;
+    private int bestLength = 0;
+    private int totalCatches = 0;
+
     public User(String username, String password, boolean admin) {
         this.username = username;
         this.password = password;
@@ -48,5 +55,45 @@ public class User {
 
     public void setAdmin(boolean admin) {
         this.admin = admin;
+    }
+
+    public String getBestWeightSpecies() {
+        return bestWeightSpecies;
+    }
+
+    public void setBestWeightSpecies(String bestWeightSpecies) {
+        this.bestWeightSpecies = bestWeightSpecies;
+    }
+
+    public float getBestWeight() {
+        return bestWeight;
+    }
+
+    public void setBestWeight(float bestWeight) {
+        this.bestWeight = bestWeight;
+    }
+
+    public String getBestLengthSpecies() {
+        return bestLengthSpecies;
+    }
+
+    public void setBestLengthSpecies(String bestLengthSpecies) {
+        this.bestLengthSpecies = bestLengthSpecies;
+    }
+
+    public int getBestLength() {
+        return bestLength;
+    }
+
+    public void setBestLength(int bestLength) {
+        this.bestLength = bestLength;
+    }
+
+    public int getTotalCatches() {
+        return totalCatches;
+    }
+
+    public void setTotalCatches(int totalCatches) {
+        this.totalCatches = totalCatches;
     }
 }
