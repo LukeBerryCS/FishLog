@@ -2,6 +2,7 @@ package com.example.fishlog;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ public class Index extends AppCompatActivity {
     Button indexMyCatches;
     Button indexMyTrips;
     Button indexPersonalBest;
+    static Button indexAdminTools;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +25,27 @@ public class Index extends AppCompatActivity {
         String tempText = "User:  " + MainActivity.currentUser.getUsername();
         loginInfoTemp.setText(tempText);
 
+
+
         indexLogout = findViewById(R.id.indexLogoutButton);
         indexMyCatches = findViewById(R.id.indexMyCatches);
         indexMyTrips = findViewById(R.id.indexMyTrips);
         indexPersonalBest = findViewById(R.id.indexPersonalBest);
+        indexAdminTools = findViewById(R.id.indexAdminTools);
+
+        if(!MainActivity.currentUser.isAdmin()) {
+            System.out.println("Current user is not admin");
+            indexAdminTools.setVisibility(View.INVISIBLE);
+        } else {
+            System.out.println("Current user is admin");
+            indexAdminTools.setVisibility(View.VISIBLE);
+        }
 
         indexLogout.setOnClickListener(view -> logout());
         indexMyCatches.setOnClickListener(view -> indexToCatches());
         indexMyTrips.setOnClickListener(view -> indexToTrips());
         indexPersonalBest.setOnClickListener(view -> indexToPersonalBest());
+        indexAdminTools.setOnClickListener(view -> indexToAdminTools());
     }
     private void logout() {
         Intent intent = new Intent(Index.this, MainActivity.class);
@@ -53,6 +67,12 @@ public class Index extends AppCompatActivity {
 
     private void indexToPersonalBest() {
         Intent intent = new Intent(Index.this, PersonalBest.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void indexToAdminTools() {
+        Intent intent = new Intent(Index.this, AdminTools.class);
         startActivity(intent);
         finish();
     }

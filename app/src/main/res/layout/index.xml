@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="visible">
 
     <TextView
         android:id="@+id/loginInfoTemp"
@@ -54,12 +55,12 @@
 
     <Button
         android:id="@+id/indexPersonalBest"
-        android:layout_width="218dp"
-        android:layout_height="55dp"
+        android:layout_width="214dp"
+        android:layout_height="56dp"
         android:text="Personal Best"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/indexMyTrips"
         app:layout_constraintVertical_bias="0.03" />
@@ -74,4 +75,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginInfoTemp" />
+
+    <Button
+        android:id="@+id/indexAdminTools"
+        android:layout_width="206dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:text="Admin Tools"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/indexPersonalBest"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
