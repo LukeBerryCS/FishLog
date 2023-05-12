@@ -12,7 +12,6 @@ public class Index extends AppCompatActivity {
     TextView indexLogout;
     Button indexMyCatches;
     Button indexMyTrips;
-    Button indexPersonalBest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +25,10 @@ public class Index extends AppCompatActivity {
         indexLogout = findViewById(R.id.indexLogoutButton);
         indexMyCatches = findViewById(R.id.indexMyCatches);
         indexMyTrips = findViewById(R.id.indexMyTrips);
-        indexPersonalBest = findViewById(R.id.indexPersonalBest);
 
         indexLogout.setOnClickListener(view -> logout());
         indexMyCatches.setOnClickListener(view -> indexToCatches());
         indexMyTrips.setOnClickListener(view -> indexToTrips());
-        indexPersonalBest.setOnClickListener(view -> indexToPersonalBest());
     }
     private void logout() {
         Intent intent = new Intent(Index.this, MainActivity.class);
@@ -47,12 +44,6 @@ public class Index extends AppCompatActivity {
 
     private void indexToTrips() {
         Intent intent = new Intent(Index.this, MyTrips.class);
-        startActivity(intent);
-        finish();
-    }
-
-    private void indexToPersonalBest() {
-        Intent intent = new Intent(Index.this, PersonalBest.class);
         startActivity(intent);
         finish();
     }
