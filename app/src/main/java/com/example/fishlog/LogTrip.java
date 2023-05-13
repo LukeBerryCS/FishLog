@@ -20,8 +20,6 @@ import java.util.List;
 
 public class LogTrip extends AppCompatActivity {
     private static String tempLocation = "";
-    private static String tempStartDate = "";
-    private static String tempEndDate = "";
 
     Button logTripCancel;
     Button logTripSave;
@@ -66,8 +64,6 @@ public class LogTrip extends AppCompatActivity {
     }
     private void cancel() {
         tempLocation = "";
-        tempStartDate = "";
-        tempEndDate = "";
         Trip.classTripId += 1;
         Intent intent = new Intent(LogTrip.this, MyTrips.class);
         startActivity(intent);
@@ -82,8 +78,6 @@ public class LogTrip extends AppCompatActivity {
         System.out.println("New trip created: " + location);
 
         tempLocation = "";
-        tempStartDate = "";
-        tempEndDate = "";
 
         Intent intent = new Intent(LogTrip.this, MyTrips.class);
         startActivity(intent);

@@ -60,18 +60,21 @@ public class MyTrips extends AppCompatActivity {
         List<Trip> myTrips = myTripDAO.findTrips(MainActivity.currentUserId);
         String tempText = "";
         for(int i = 0; i < myTrips.size(); i++) {
+            System.out.println("i: " + i + " myTrips.size(): " + myTrips.size());
             tempText += myTrips.get(i).getLocation() + "\n";
-            List<Fish> tripFish = myFishDAO.populateCatches(myTrips.get(i).getTripId());
+            List<Fish> tripFish = null;
+            tripFish = myFishDAO.populateCatches(myTrips.get(i).getTripId());
             for(int j = 0; j < tripFish.size(); j++) {
+                System.out.println("j: " + j + " tripFish.size(): " + tripFish.size());
                 String species = tripFish.get(j).getSpecies();
-                float weight = tripFish.get(i).getWeight();
-                int length = tripFish.get(i).getSize();
+                float weight = tripFish.get(j).getWeight();
+                int length = tripFish.get(j).getSize();
                 tempText += "\t" + species + " (" + weight + " lbs. " + length + " inches)\n";
             }
             tempText += "\n";
         }
         myTripsViewTrip.setText(tempText);
-
+        System.out.println("showTrips()");
     }
 
 }

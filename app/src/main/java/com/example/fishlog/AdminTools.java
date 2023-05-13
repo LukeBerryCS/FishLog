@@ -102,7 +102,6 @@ public class AdminTools extends AppCompatActivity {
         adminToolsChangePasswordEntry.setText("");
     }
 
-
     private void back() {
         Intent intent = new Intent(AdminTools.this, Index.class);
         startActivity(intent);
